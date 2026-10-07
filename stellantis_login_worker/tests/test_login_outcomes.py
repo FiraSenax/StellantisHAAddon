@@ -97,3 +97,17 @@ async def test_pending_consent_is_always_drained(outcome):
             await runner
     assert task.done()
     assert cleaned.is_set()
+
+
+def test_url_log_redacts_query_and_fragment_secrets():
+    from login import _redact
+    redacted = _redact('mymap://oauth2redirect/de?code=secret-query#token=secret-fragment')
+    assert 'secret' not in redacted
+    assert 'code=' in redacted
+
+
+def test_browser_implementations_stay_in_sync():
+    root = Path(__file__).resolve().parents[2]
+    worker = (root / 'stellantis_login_worker/app/login.py').read_text()
+    bridge = (root / 'stellantis_vehicles/app/oauth_browser/login.py').read_text()
+    assert worker[worker.index('import asyncio'):].strip() == bridge[bridge.index('import asyncio'):bridge.index('def _cli()')].strip()

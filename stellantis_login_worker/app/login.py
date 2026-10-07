@@ -99,7 +99,7 @@ def _redact(url: str) -> str:
         return ""
     parts = urlsplit(url)
     keys = "&".join(f"{k}=…" for k in parse_qs(parts.query)) if parts.query else ""
-    return parts._replace(query=keys).geturl()
+    return parts._replace(query=keys, fragment="…" if parts.fragment else "").geturl()
 
 
 async def _bounded(coro, timeout: float, what: str) -> None:
