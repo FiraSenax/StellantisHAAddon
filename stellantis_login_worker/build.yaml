@@ -3,5 +3,5 @@ build_from:
   amd64: ghcr.io/home-assistant/amd64-base-debian:bookworm
 labels:
   org.opencontainers.image.title: Stellantis Login Worker
-  org.opencontainers.image.source: https://github.com/taubenhorst/StellantisHAAddon
+  org.opencontainers.image.source: https://github.com/ktaubmann/StellantisHAAddon
   org.opencontainers.image.licenses: MIT

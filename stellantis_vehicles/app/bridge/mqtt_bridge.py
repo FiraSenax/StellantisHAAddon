@@ -35,7 +35,7 @@ from .entities import Entity, build_entities
 
 _LOGGER = logging.getLogger(__name__)
 
-SUPPORT_URL = "https://github.com/taubenhorst/StellantisHAAddon"
+SUPPORT_URL = "https://github.com/ktaubmann/StellantisHAAddon"
 
 
 def _json_default(value):

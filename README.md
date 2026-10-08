@@ -28,7 +28,7 @@ mentioned here are trademarks of Stellantis N.V. and its subsidiaries. Use at yo
 ## Installation
 
 Settings → Add-ons → Add-on Store → ⋮ → Repositories →
-`https://github.com/taubenhorst/StellantisHAAddon`
+`https://github.com/ktaubmann/StellantisHAAddon`
 
 Both add-ons then appear in the store. **Stellantis Vehicles** requires the Mosquitto
 broker add-on, the MQTT integration and Home Assistant 2025.10 or newer.
