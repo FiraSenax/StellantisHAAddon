@@ -138,6 +138,7 @@ Echter Login + Statusabruf des e-Rifters verifiziert. Repo/Pakete public.
 Add-on 0.2.0 (25.09.2026): Upstream auf develop da32364 gehoben (Schritte 1–4: Vendor+Shim, base.py, Bridge,
 Release). Offline-Tests grün, live auf dem Pi noch nicht gelaufen.
 Zweites Add-on `stellantis_login_worker` 0.2.0 (mit Supervisor-Discovery) — HTTP-Vertrag getestet, live noch nicht gelaufen.
+0.2.1 (08.10.2026, beide Add-ons): nur Image-Pfad/Links auf `ktaubmann` (Nutzer bekam 403 von `ghcr.io/taubenhorst`).
 
 ## Nächste Schritte
 6. Auf dem Pi: Add-on-Store → Repositories →
