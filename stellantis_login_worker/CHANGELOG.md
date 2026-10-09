@@ -1,3 +1,10 @@
+## 0.2.1
+
+- Fix: installing or updating failed with `403 denied` from `ghcr.io/taubenhorst/…`.
+  The GitHub account was renamed to `ktaubmann`; the add-on now pulls its image from
+  `ghcr.io/ktaubmann/stellantis-login-worker-{arch}`
+- Repository, support and image source links point to `ktaubmann/StellantisHAAddon`
+
 ## 0.2.0
 
 - Supervisor discovery: on start the add-on announces itself as service
