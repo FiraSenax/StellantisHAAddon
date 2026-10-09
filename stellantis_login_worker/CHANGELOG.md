@@ -1,4 +1,4 @@
-## 0.2.1
+## 0.2.2
 
 - Login attempts have one HTTP deadline and bounded browser cleanup.
 - Concurrent requests now receive HTTP 429 with `Retry-After: 10` instead of
@@ -11,6 +11,13 @@
   levels; raw response bodies and console contents are omitted.
 - Only documented login rejections abort early. Pending verification and unknown
   numeric provider codes keep waiting for the browser redirect within the deadline.
+
+## 0.2.1
+
+- Fix: installing or updating failed with `403 denied` from `ghcr.io/taubenhorst/…`.
+  The GitHub account was renamed to `ktaubmann`; the add-on now pulls its image from
+  `ghcr.io/ktaubmann/stellantis-login-worker-{arch}`
+- Repository, support and image source links point to `ktaubmann/StellantisHAAddon`
 
 ## 0.2.0
 

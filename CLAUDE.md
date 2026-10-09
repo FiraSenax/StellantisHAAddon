@@ -82,14 +82,17 @@ Container zusammenfasst. Fahrzeuge kommen per MQTT Discovery nach HA.
 - `.dockerignore` hält `data/` (Tokens, OTP-Pickle) und `tests/` aus dem Build-Kontext.
 
 ## CI / GHCR (Schritt 5, 05.09.2026)
-- Repo `taubenhorst/StellantisHAAddon`, `origin` gesetzt, GitHub-CLI (`C:\Program Files\GitHub CLI\gh.exe`)
-  ist als `taubenhorst` angemeldet (Scopes repo/workflow, **kein** read:packages → Paketliste per API geht nicht;
-  Sichtbarkeit stattdessen per anonymem `docker manifest inspect ghcr.io/taubenhorst/stellantis-vehicles-<arch>:0.1.0` prüfen).
+- Repo `ktaubmann/StellantisHAAddon`, `origin` gesetzt, GitHub-CLI (`C:\Program Files\GitHub CLI\gh.exe`)
+  ist als Repo-Owner angemeldet (Scopes repo/workflow, **kein** read:packages → Paketliste per API geht nicht;
+  Sichtbarkeit stattdessen per anonymem `docker manifest inspect ghcr.io/ktaubmann/stellantis-vehicles-<arch>:0.1.0` prüfen).
 - Erster Workflow-Lauf (Run 33984930360) grün: amd64 2 min, aarch64 7 min. Images:
-  `ghcr.io/taubenhorst/stellantis-vehicles-{amd64,aarch64}:0.1.0` (+ `latest`).
+  `ghcr.io/ktaubmann/stellantis-vehicles-{amd64,aarch64}:0.1.0` (+ `latest`).
 - Repo und beide Pakete sind seit 05.09.2026 **public** (anonymer Manifest-Zugriff verifiziert, ~540/573 MB
   komprimiert). Paket-Sichtbarkeit ist eine eigene Einstellung je Paket:
-  `https://github.com/users/taubenhorst/packages/container/<paket>/settings` → Change visibility.
+  `https://github.com/users/ktaubmann/packages/container/<paket>/settings` → Change visibility.
+- Der GitHub-Account hieß früher `taubenhorst`. GHCR leitet nicht um: die alten Pakete unter
+  `ghcr.io/taubenhorst/…` liefern anonym 403, `image:` in den config.yaml zeigt deshalb auf `ghcr.io/ktaubmann/…`
+  (0.2.0 dort anonym abrufbar, geprüft 08.10.2026).
 
 ## Mehrsprachigkeit
 - Alle 15 Upstream-Übersetzungen sind vendored (seit da32364 inkl. `sl`); der Shim-Loader (`hass_shim/.../translation.py`) legt
@@ -135,10 +138,11 @@ Echter Login + Statusabruf des e-Rifters verifiziert. Repo/Pakete public.
 Add-on 0.2.0 (25.09.2026): Upstream auf develop da32364 gehoben (Schritte 1–4: Vendor+Shim, base.py, Bridge,
 Release). Offline-Tests grün, live auf dem Pi noch nicht gelaufen.
 Zweites Add-on `stellantis_login_worker` 0.2.0 (mit Supervisor-Discovery) — HTTP-Vertrag getestet, live noch nicht gelaufen.
+0.2.1 (08.10.2026, beide Add-ons): nur Image-Pfad/Links auf `ktaubmann` (Nutzer bekam 403 von `ghcr.io/taubenhorst`).
 
 ## Nächste Schritte
 6. Auf dem Pi: Add-on-Store → Repositories →
-   `https://github.com/taubenhorst/StellantisHAAddon` → installieren, Optionen setzen, Ingress-Login.
+   `https://github.com/ktaubmann/StellantisHAAddon` → installieren, Optionen setzen, Ingress-Login.
    Vorher die HACS-Integration `stellantis_vehicles` deaktivieren (doppeltes Polling, OTP-Gerätelimit).
    Erster Lauf mit Supervisor-MQTT prüfen (`services: mqtt:want`, `run`-Skript setzt `STELLANTIS_MQTT_*`).
 7. Neue Version = `version:` in `config.yaml` anheben + Tag `vX.Y.Z` pushen (Workflow baut auch bei Tags).

@@ -1,9 +1,16 @@
-## 0.2.1
+## 0.2.2
 
 - Keep browser-login handling in sync with the login worker: conservative
   provider rejection detection, bounded cleanup and safe phase/URL diagnostics.
 - Restore structured ForgeRock and console diagnostics without logging raw
   page text, response bodies or console contents.
+
+## 0.2.1
+
+- Fix: installing or updating failed with `403 denied` from `ghcr.io/taubenhorst/…`.
+  The GitHub account was renamed to `ktaubmann`; the add-on now pulls its image from
+  `ghcr.io/ktaubmann/stellantis-vehicles-{arch}`
+- Repository, support and image source links point to `ktaubmann/StellantisHAAddon`
 
 ## 0.2.0
 
