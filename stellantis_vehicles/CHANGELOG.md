@@ -1,3 +1,10 @@
+## 0.2.1
+
+- Keep browser-login handling in sync with the login worker: conservative
+  provider rejection detection, bounded cleanup and safe phase/URL diagnostics.
+- Restore structured ForgeRock and console diagnostics without logging raw
+  page text, response bodies or console contents.
+
 ## 0.2.0
 
 Upstream integration updated from 2026.9.1 (69fddda) to develop da32364 (after 2026.9.5-beta.1).
